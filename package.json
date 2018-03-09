@@ -1,0 +1,24 @@
+{
+  "name": "talk-token-example",
+  "version": "1.0.0",
+  "description": "An example service to generate a JWT for a custom auth integration with Talk.",
+  "main": "index.js",
+  "author": "",
+  "scripts": {
+    "start": "node index.js",
+    "issue": "node issue.js"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "convict": "^4.0.2",
+    "dotenv": "^5.0.1",
+    "express": "^4.16.2",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.2.0",
+    "morgan": "^1.9.0"
+  },
+  "devDependencies": {
+    "@coralproject/eslint-config-talk": "^0.1.1",
+    "eslint": "^4.18.2"
+  }
+}
