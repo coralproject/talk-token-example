@@ -16,11 +16,16 @@ yarn start
 
 The `yarn issue` command will print an example curl request that can be issued
 to "retrieve" a user from a "database". You can use that request to get a new
-token that you can pass to Talk.
+token that you can pass to Talk. Imagine this as the request that your CMS will
+make in order to get an auth token to inject into the Talk embed on your page.
 
 `yarn start` will start the issuing server that will respond to token creation
 requests (`POST /`) and to token lookup request (`GET /`) with those tokens
 created via the creation request.
+
+The lookup route (`GET /`) can be used by the `tokenUserNotFound` plugin hook in
+your Talk plugin where you can pass the token back to in order to exchange for
+the user information that Talk can use to populate the user.
 
 ## License
 
