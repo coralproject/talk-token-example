@@ -1,5 +1,5 @@
 const config = require('./config');
-const db = require('./db');
+const db = require('./db.json');
 const jwt = require('jsonwebtoken');
 const middleware = require('express-jwt');
 const express = require('express');
