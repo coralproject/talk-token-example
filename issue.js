@@ -16,6 +16,6 @@ To issue a curl request for a user:
 
   curl -H 'Authorization: Bearer ${token}' \\
     -H 'Content-Type: application/json' \\
-    --data '{"id": "1"}' \\
+    --data '{"id": "1"}' --silent \\
     http://localhost:3000/
 `);

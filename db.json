@@ -1,3 +1,5 @@
 [
-    { "id": "1", "email": "email@address.com" }
+    { "id": "1", "email": "bob@coralproject.net", "username": "bob" },
+    { "id": "2", "email": "alice@coralproject.net", "username": "alice" },
+    { "id": "3", "email": "eve@coralproject.net", "username": "eve" }
 ]
