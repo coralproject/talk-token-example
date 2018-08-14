@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const middleware = require('express-jwt');
 const express = require('express');
 const morgan = require('morgan');
+const uuid = require('uuid/v4');
 const app = express();
 
 // Parse the request json data.
@@ -54,6 +55,8 @@ app.post(
     // Create a token, sign it with our secret, and send it back to the user.
     try {
       const token = jwt.sign({}, config.get('secret'), {
+        jwtid: uuid(),
+        expiresIn: '12 hours',
         audience: config.get('jwt_audience'),
         issuer: config.get('jwt_issuer'),
         expiresIn: config.get('jwt_expiry'),
