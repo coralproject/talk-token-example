@@ -21,10 +21,10 @@ app.get(
     issuer: config.get('jwt_issuer'),
   }),
   (req, res) => {
-    const { userID: id } = req.user;
+    const { sub } = req.user;
 
     // Find the user in the database.
-    const user = db.find(user => user.id === id);
+    const user = db.find(user => user.id === sub);
     if (!user) {
       return res.status(404).end();
     }
@@ -53,10 +53,11 @@ app.post(
 
     // Create a token, sign it with our secret, and send it back to the user.
     try {
-      const token = jwt.sign({ userID: user.id }, config.get('secret'), {
+      const token = jwt.sign({}, config.get('secret'), {
         audience: config.get('jwt_audience'),
         issuer: config.get('jwt_issuer'),
         expiresIn: config.get('jwt_expiry'),
+        subject: user.id,
       });
 
       res.status(201).json({ token });
