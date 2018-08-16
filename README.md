@@ -23,9 +23,18 @@ make in order to get an auth token to inject into the Talk embed on your page.
 requests (`POST /`) and to token lookup request (`GET /`) with those tokens
 created via the creation request.
 
+## Consuming
+
 The lookup route (`GET /`) can be used by the `tokenUserNotFound` plugin hook in
-your Talk plugin where you can pass the token back to in order to exchange for
+your Talk plugin where you can pass the token back (as a [Bearer Token](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Authentication_schemes) to in order to exchange for
 the user information that Talk can use to populate the user.
+
+For example:
+
+```bash
+TOKEN=<your-token>
+curl -H "Authorization: Bearer $TOKEN" https://<your-deployed-talk-token-example>/
+```
 
 ## License
 
